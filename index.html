@@ -1,49 +1,219 @@
 <!DOCTYPE html>
+
+<!--
+    Indicamos que el documento utiliza HTML5.
+    El atributo lang="es" informa de que el contenido
+    principal de la página está en español.
+-->
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
 
+    <!--
+        Codificación de caracteres.
+        UTF-8 permite utilizar correctamente caracteres
+        como ñ, á, é, símbolos, etc.
+    -->
+    <meta charset="UTF-8">
+
+
+    <!--
+        Configuración para dispositivos móviles.
+
+        width=device-width:
+        adapta el ancho de la página al ancho del dispositivo.
+
+        initial-scale=1.0:
+        establece el nivel inicial de zoom.
+    -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+
+    <!--
+        Título de la página.
+        Aparece normalmente en la pestaña del navegador.
+    -->
     <title>Mi primera Web App</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
 
-    <script src="js/app.js" defer></script>
+    <!--
+        Enlazamos nuestra hoja de estilos CSS externa.
+
+        HTML → estructura
+        CSS  → presentación
+        JS   → comportamiento
+    -->
+    <link
+        rel="stylesheet"
+        href="css/estilos.css"
+    >
+
+
+    <!--
+        Cargamos nuestro archivo JavaScript externo.
+
+        src:
+        indica la ruta donde se encuentra el archivo.
+
+        defer:
+        permite descargar el JavaScript mientras el navegador
+        continúa procesando el HTML.
+
+        El código JavaScript se ejecutará cuando el HTML
+        haya sido procesado.
+
+        Esto es importante porque nuestro JavaScript necesita
+        acceder a elementos como #nombre, #botonSaludar, etc.
+    -->
+    <script
+        src="js/app.js"
+        defer
+    ></script>
+
 </head>
+
 
 <body>
 
+    <!--
+        <main> representa el contenido principal de la página.
+
+        class="tarjeta":
+        utilizamos una CLASE principalmente para aplicar
+        estilos desde CSS.
+
+        En CSS podremos seleccionarla mediante:
+
+        .tarjeta {
+            ...
+        }
+    -->
     <main class="tarjeta">
 
+
+        <!--
+            Título principal de la aplicación.
+
+            id="titulo":
+            proporciona un identificador único al elemento.
+
+            JavaScript podrá seleccionarlo mediante:
+
+            document.querySelector("#titulo");
+        -->
         <h1 id="titulo">
             Mi primera Web App
         </h1>
 
+
+        <!--
+            Párrafo descriptivo.
+
+            Aquí utilizamos una clase porque puede servir
+            para aplicar estilos CSS.
+        -->
         <p class="descripcion">
             Desarrollo Web en Entorno Cliente
         </p>
 
+
+        <!--
+            Etiqueta asociada al campo de texto.
+
+            for="nombre" está relacionado con:
+
+            id="nombre"
+
+            Esto mejora la accesibilidad y permite que,
+            al pulsar sobre la etiqueta, el navegador
+            coloque el foco en el input correspondiente.
+        -->
         <label for="nombre">
             ¿Cómo te llamas?
         </label>
 
+
+        <!--
+            Campo de entrada de datos.
+
+            type="text":
+            permite introducir texto.
+
+            id="nombre":
+            identificador único que utilizaremos desde
+            JavaScript.
+
+            placeholder:
+            muestra un texto orientativo mientras
+            el campo está vacío.
+
+            Desde JavaScript podremos obtener lo escrito con:
+
+            inputNombre.value
+        -->
         <input
             type="text"
             id="nombre"
             placeholder="Escribe tu nombre"
         >
 
+
+        <!--
+            Botón para realizar la acción de saludar.
+
+            Su id permite localizarlo desde JavaScript:
+
+            const botonSaludar =
+                document.querySelector("#botonSaludar");
+
+            Después podremos escuchar el evento click:
+
+            botonSaludar.addEventListener("click", ...);
+        -->
         <button id="botonSaludar">
             Saludar
         </button>
 
+
+        <!--
+            Segundo botón de la aplicación.
+
+            Permitirá restaurar la aplicación a su
+            estado inicial.
+
+            JavaScript podrá seleccionarlo mediante:
+
+            document.querySelector("#botonReiniciar");
+        -->
+        <button id="botonReiniciar">
+            Reiniciar
+        </button>
+
+
+        <!--
+            Párrafo en el que JavaScript mostrará mensajes.
+
+            Inicialmente contiene un texto por defecto.
+
+            Después podremos modificarlo desde JavaScript:
+
+            mensaje.textContent = "Hola";
+
+            Por ejemplo:
+
+            mensaje.textContent =
+                `¡Hola, ${nombre}!`;
+        -->
         <p id="mensaje">
             Aquí aparecerá el mensaje
         </p>
 
+
     </main>
 
 </body>
+
 </html>
